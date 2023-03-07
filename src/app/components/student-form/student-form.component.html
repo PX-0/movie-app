@@ -1,0 +1,49 @@
+<div class="p-2"*ngIf="student">
+    <div class="d-flex flex-column">
+        <h3 *ngIf="mode === 'edit';else addStudentTemplate" > MODIFICA STUDENTE {{ student.nome+" "+student.cognome}} </h3>
+        <ng-template #addStudentTemplate> AGGIUNGI STUDENTE </ng-template>
+    
+        <p>Nome e Cognome </p>
+        <input type="text" matInput [(ngModel)]="student.nome"/>
+        <input type="text" matInput [(ngModel)]="student.cognome"/>
+    
+        <p>Eta</p>
+        <input type="number" matInput [(ngModel)]="student.eta" min="19" max="39" >
+    
+        <p>Città</p>
+        <input type="text" matInput [(ngModel)]="student.citta">
+    
+        <p>Genere</p>
+        <mat-select [(ngModel)]="student.genere" class="border border-dark" >
+            <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+        </mat-select>
+    
+        <p>Animali Domestici <mat-checkbox type="checkbox" [(ngModel)]="student.hasPets"></mat-checkbox></p>
+    
+    
+        <div>
+            <p>Hobbies</p>
+            <button (click)="addHobby()">add hobby</button>
+            <div *ngFor="let hobby of student.hobbies;let index = index">
+                <input type="text" matInput [(ngModel)]="student.hobbies[index].name">
+                <input type="text" matInput [(ngModel)]="student.hobbies[index].icon">
+            </div>
+    
+        </div>
+    
+        <div>
+            <p>Lingue</p>
+            <button (click)="addLang()">add language</button>
+            <div *ngFor="let lingua of student.lingue;let index = index">
+                <input type="text" matInput [(ngModel)]="student.lingue[index].name">
+                <input type="text" matInput [(ngModel)]="student.lingue[index].icon">
+            </div>
+    
+        </div>
+    
+        <div class="pt-3">
+            <button (click)="saveChanges()" mat-stroked-button color="primary">SAVE</button>
+        </div>
+    
+    </div>
+</div>

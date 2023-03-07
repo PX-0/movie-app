@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Student } from 'src/app/models/types/student';
 
 @Component({
@@ -8,4 +8,5 @@ import { Student } from 'src/app/models/types/student';
 })
 export class StudentComponent {
   @Input() student:Student|undefined;
+  @Output() editStudent:EventEmitter<void>=new EventEmitter<void>();
 }

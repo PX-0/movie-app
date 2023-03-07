@@ -1,5 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatCardModule} from '@angular/material/card';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +15,7 @@ import { StudentComponent } from './components/student/student.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
 import { LanguageComponent } from './components/language/language.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
+import { StudentFormComponent } from './components/student-form/student-form.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +23,16 @@ import {MatCardModule} from '@angular/material/card';
     FirstComponentComponent,
     StudentComponent,
     HobbyComponent,
-    LanguageComponent
+    LanguageComponent,
+    StudentFormComponent
   ],
   imports: [
+    MatCheckboxModule,
+    MatSelectModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSidenavModule,
     MatCardModule,
     BrowserModule,
     AppRoutingModule,

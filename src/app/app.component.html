@@ -1,4 +1,14 @@
 <!-- <app-first-component title="BLOCK 1" (buttonClicked)="handleBlockOne($event)"/> -->
-<div style="display: grid; grid:auto / auto auto auto; text-align: center; gap: 1rem; background-color: black;">
-    <app-student *ngFor="let student of students;let odd = odd ; let even = even" [student]="student"> </app-student>
-</div>
+<mat-sidenav-container>
+
+    <mat-sidenav #sidenav mode="over" class="w-25">
+        <app-student-form (addStudent)="addStudent($event)" [student]="selectedStudent" (editStudent)="handleEditStudent($event);sidenav.close()" ></app-student-form>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <button (click)="sidenav.open()">ADD STUDENT</button>
+        <div style="display: grid; grid:auto / auto auto auto; text-align: center; gap: 1rem; background-color: black;">
+            <app-student *ngFor="let student of students;let odd = odd ; let even = even" [student]="student" (editStudent)="editStudent(student);sidenav.open()"> </app-student>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
