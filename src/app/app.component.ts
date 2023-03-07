@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { STUDENTS } from './data/students';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'movie-app';
+
+  students =structuredClone(STUDENTS);
+
+  handleBlockOne(text: string): void {
+    alert(text);
+  }
 }

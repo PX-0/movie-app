@@ -1,0 +1,28 @@
+<!-- <div *ngIf="student" class="d-flex justify-content-center flex-column gap-1">
+    <p>{{student.nome + " - " + student.cognome}}</p>
+    <span *ngIf=" student.genere.toLowerCase() === 'm'; else womanTemplate ">
+        <i class="fa-solid fa-mars" style="width: 1rem;"></i>
+    </span>
+    <ng-template #womanTemplate>
+        <i class="fa-solid fa-venus"></i>
+    </ng-template>
+    <app-hobby *ngFor="let hobby of student.hobbies" [hobby]="hobby"/>
+    <app-language *ngFor="let language of student.lingue" [language]="language"/>
+</div> -->
+
+<mat-card *ngIf="student" class="example-card">
+    <mat-card-header>
+      <mat-card-subtitle>{{student.cognome}}</mat-card-subtitle>
+      <mat-card-title>{{student.nome}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="d-flex justify-content-center flex-column gap-1">
+        <span *ngIf=" student.genere.toLowerCase() === 'm'; else womanTemplate ">
+            <i class="fa-solid fa-mars" style="width: 1rem;"></i>
+        </span>
+        <ng-template #womanTemplate>
+            <i class="fa-solid fa-venus"></i>
+        </ng-template>
+        <app-hobby *ngFor="let hobby of student.hobbies" [hobby]="hobby"/>
+        <app-language *ngFor="let language of student.lingue" [language]="language"/>
+    </mat-card-content>
+</mat-card>
